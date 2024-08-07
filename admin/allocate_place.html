@@ -1,0 +1,32 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form method="post" action="/adm_allocate_place_post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1 align="center">ALLOCATE PLACE TO AUTHORITY</h1>
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Authority</td>
+            <td>
+                <select name="select"  class="form-control">
+                    {% for i in data2 %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Place</td>
+            <td>
+                <select name="select2"  class="form-control">
+                    {% for i in data %}
+                        <option value="{{ i.id }}">{{ i.place_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="ALLOCATE" class="btn btn-success"/> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

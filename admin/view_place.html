@@ -1,0 +1,21 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    <h1 align="center">PLACE DETAILS</h1>
+<table border="1" class="table table-striped" >
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>PLACENAME</th>
+        <th>DISTRICT</th>
+        <th colspan="2"></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.place_name }}</td>
+        <td>{{ i.district }}</td>
+        <td><a href="/adm_edit_place/{{ i.id }}#content" class="btn btn-info">Edit</a> </td>
+        <td><a href="/adm_delete_place/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are you sure')">Delete</a> </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form method="post" action="/adm_edit_authority_post/{{ data.id }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1 align="center">EDIT AUTHORITY DETAILS</h1>
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="textfield" value="{{ data.name }}" class="form-control" required/> </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="textfield2" value="{{ data.email }}" class="form-control" required/> </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="textfield3" value="{{ data.phone }}" pattern="[6789][0-9]{9}" maxlength="10" class="form-control" required/> </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="radio" value="Male" {% if data.gender == "Male" %} checked {% endif %}/>Male&emsp;
+                <input type="radio" name="radio" value="Female" {% if data.gender == "Female" %} checked {% endif %}/>Female&emsp; </td>
+        </tr>
+        <tr>
+            <td>Photo</td>
+            <td>
+                <img src="{{ data.photo }}" height="100" width="100" /><br>
+                <input type="file" name="fileField"  class="form-control"/> </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="UPDATE" class="btn btn-success"/> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

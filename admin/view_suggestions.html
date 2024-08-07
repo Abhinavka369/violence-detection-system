@@ -1,0 +1,22 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    <h1 align="center">SUGGESTIONS FROM AUTHORITIES</h1>
+<table border="1" class="table table-striped" >
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>DATE</th>
+        <th>TIME</th>
+        <th>AUTHORITY</th>
+        <th>SUGGESTION</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.time }}</td>
+        <td>{{ i.AUTHORITY.name }}</td>
+        <td>{{ i.suggestion }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

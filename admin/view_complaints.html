@@ -1,0 +1,28 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    <h1 align="center">NEW COMPLAINTS</h1>
+<table border="1" class="table table-striped" >
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>DATE</th>
+        <th>AUTHORITY</th>
+        <th>COMPLAINT</th>
+        <th>REPLY</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.AUTHORITY.name }}</td>
+        <td>{{ i.complaint }}</td>
+        <td>
+            {% if i.reply == "pending" %}
+                <a href="/adm_send_reply/{{ i.id }}#content" class="btn btn-info">Reply</a>
+            {% else %}
+                {{ i.reply }}
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

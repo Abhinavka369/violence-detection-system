@@ -1,0 +1,22 @@
+{% extends "admin/index.html" %}
+{% block body %}
+    <h1 align="center">violence</h1>
+<table border="1" class="table table-striped" >
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>DATE</th>
+        <th>time</th>
+        <th>image</th>
+        <th>area</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.time }}</td>
+        <td><img src="{{ i.image }}" height="100" width="100"></td>
+        <td>{{ i.CAMERA.area }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

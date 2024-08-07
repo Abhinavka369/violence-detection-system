@@ -1,0 +1,33 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form method="post" action="/adm_add_authority_post/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h1 align="center">ADD AUTHORITY DETAILS</h1>
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="textfield" class="form-control" required/> </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="textfield2" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" name="textfield3" pattern="[6789][0-9]{9}" maxlength="10" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><input type="radio" name="radio" value="Male" checked/>Male&emsp;
+                <input type="radio" name="radio" value="Female" />Female&emsp; </td>
+        </tr>
+        <tr>
+            <td>Photo</td>
+            <td><input type="file" name="fileField" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="ADD" class="btn btn-success" /> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

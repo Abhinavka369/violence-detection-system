@@ -1,0 +1,32 @@
+{% extends 'authority/index.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" class="table table-striped">
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>MANUFACTURER</th>
+        <th>MODEL</th>
+        <th>AREA</th>
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.manufacturer }}</td>
+        <td>{{ i.cam_model }}</td>
+        <td>{{ i.area }}</td>
+        <td>
+            <a href="/auth_delete_camera/{{ all_id }}/{{ i.id }}" onclick="return confirm('Are you sure')" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+{% endblock %}

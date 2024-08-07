@@ -1,0 +1,32 @@
+{% extends 'authority/index.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/auth_add_camera_post/{{ id }}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Manufacturer</td>
+            <td><input type="text" name="textfield" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td>Model</td>
+            <td><input type="text" name="textfield2" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td>Area</td>
+            <td><input type="text" name="textfield3" class="form-control" required /> </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="ADD" class="btn btn-success" /> </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

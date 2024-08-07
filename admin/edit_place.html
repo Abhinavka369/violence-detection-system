@@ -1,0 +1,36 @@
+{% extends "admin/index.html" %}
+{% block body %}
+<form method="post" action="/adm_edit_place_post/{{ data.id }}">
+    {% csrf_token %}
+    <h1 align="center">EDIT PLACE DETAILS</h1>
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Place</td>
+            <td><input type="text" name="textfield" value="{{ data.place_name }}" class="form-control" required/> </td>
+        </tr>
+        <tr>
+            <td>District</td>
+            <td><select name="select" class="form-control">
+                <option>{{ data.district }}</option>
+                <option>Alappuzha</option>
+                <option>Ernakulam</option>
+                <option>Idukki</option>
+                <option>Kannur</option>
+                <option>Kasaragod</option>
+                <option>Kollam</option>
+                <option>Kottayam</option>
+                <option>Kozhikode</option>
+                <option>Malappuram</option>
+                <option>Palakkad</option>
+                <option>Pathanamthitta</option>
+                <option>Thiruvananthapuram</option>
+                <option>Thrissur</option>
+                <option>Wayanad</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" value="UPDATE" class="btn btn-success" /> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

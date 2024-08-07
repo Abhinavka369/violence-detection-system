@@ -1,0 +1,15 @@
+{% extends "authority/index.html" %}
+{% block body %}
+<form method="post" action="/auth_send_suggestion_post">
+    {% csrf_token %}
+    <table border="1" class="table table-striped" style="width: 500px;" align="center">
+        <tr>
+            <td>Suggestion</td>
+            <td><textarea rows="5" cols="45" name="textarea" class="form-control" required ></textarea> </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success" value="SEND" /> </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

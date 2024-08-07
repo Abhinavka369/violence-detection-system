@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends "admin/index.html" %}
+{% block body %}
+    <h1 align="center">ALLOCATION DETAILS</h1>
+<table border="1" class="table table-striped" >
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>AUTHORITY NAME</th>
+        <th>PLACE NAME</th>
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.AUTHORITY.name }}</td>
+        <td>{{ i.PLACE.place_name }}</td>
+        <td>
+            <a href="/adm_delete_allocations/{{ i.id }}" class="btn btn-danger" onclick="return confirm('Are you sure')">DELETE</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

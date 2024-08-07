@@ -1,0 +1,23 @@
+{% extends "authority/index.html" %}
+{% block body %}
+<table border="1" class="table table-striped">
+    <tr style="background: #8C1205;color: #ffffff;font-family: Georgia, serif;">
+        <th>#</th>
+        <th>DATE</th>
+        <th>COMPLAINT</th>
+        <th>REPLY</th>
+        <th></th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.complaint }}</td>
+        <td>{{ i.reply }}</td>
+        <td>
+            <a href="/auth_delete_comp/{{ i.id }}"  class="btn btn-danger"  onclick="return confirm('Are you sure')">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
